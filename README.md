@@ -25,6 +25,12 @@ The infrastructure features both wired and wireless deployment and is designed t
 * **WLAN Deployment:** Integrated Wireless Access Points (WAPs) into the Access Layer, utilizing `spanning-tree portfast` to bypass listening/learning states for rapid wireless client association.
 * **Advanced ACL Hole-Punching:** Engineered a custom Extended ACL rule set to explicitly permit `0.0.0.0` (UDP 67/68) DHCP Discover broadcasts through the Zero-Trust firewall, allowing wireless clients to obtain IP addresses without exposing the internal network.
 
+### **4. NetDevOps & Automation**
+To ensure high availability and disaster recovery, the management of this infrastructure is automated using a custom **Python (Netmiko)** script.
+* **Automated Backups:** The `network_backup.py` script autonomously connects to the Core Route and Access Switches via SSHv2.
+* **State Capture:** It securely pulls the `running-config` from each device and archives it locally with a time-stamped text file.
+* **Scalability:** Demonstrates the ability to manage network state programmatically rather than relying on manual CLI administration.
+
 ---
 
 ## 📸 Architecture Proofs
